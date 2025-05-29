@@ -54,7 +54,6 @@ export class UsersController {
     async forgotPassword(@Body('email') email: string) {
         const token = await this.usersService.generateResetToken(email);
         const res = await this.mailService.sendResetPasswordEmail(email, token);
-        console.log("res", res);
 
         return { message: 'Reset password email sent' };
     }
